@@ -1,6 +1,10 @@
 /*clases globales*/
 input{
     width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px var(--celeste);
 }
 
 body {
@@ -12,16 +16,46 @@ body {
     max-width: 1600px;
 }
 
+/*variables*/
+:root {
+    --celeste: rgb(225, 254, 255);
+    --gris-oscuro : rgb(202, 202, 202);
+    --negro: rgb(16, 16, 16);
+}
 
 /*otras clases*/
 
 /*LOGIN*/
 
+.container.login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
 .loginCnt{
-    max-width: 500px;
-    background-color: azure;
-    border: solid 1px black;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--celeste);
+    border: solid 1px rgb(190, 254, 255);
     height: 300px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 6px 8px 11px -6px rgba(0,0,0,0.79);
+-webkit-box-shadow: 6px 8px 11px -6px rgba(0,0,0,0.79);
+-moz-box-shadow: 6px 8px 11px -6px rgba(0,0,0,0.79);
+}
 
+.loginCnt .input{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    padding: 0 10px;
+    justify-content: space-between;
+}
+
+.input label{
+    padding-bottom: 10px;
 }
