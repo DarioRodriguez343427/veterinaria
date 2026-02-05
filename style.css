@@ -1,0 +1,27 @@
+/*clases globales*/
+input{
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+}
+
+
+/*otras clases*/
+
+/*LOGIN*/
+
+.loginCnt{
+    max-width: 500px;
+    background-color: azure;
+    border: solid 1px black;
+    height: 300px;
+    margin: 0 auto;
+
+}
