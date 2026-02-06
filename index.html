@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Obligatorio taller Ingenieria de Software</title>
 </head>
 <body>
     
-</body>
+<header id="encabezado">
+    <div>
+    <div class="logo"><img src="src/images/Hand Drawn Paint Paw Print.jpg" alt="Logo de la veterinaria"></div>
+      <h1>Veterinaria Huellas</h1>
+      <button id="btn-menu" class="btn-menu" onclick="mostrarMenu()">☰</button>
+    </div>
+
+    <nav id="nav" class="nav-colapsado">
+      <ul>
+        <!--
+        <li><a href="#" onclick="cargarPagina('./views/inicio.html')">Inicio</a></li>
+        <li><a href="#" onclick="cargarPagina('./views/reserva.html')">Reservas</a></li>
+        <li><a href="#" onclick="cargarPagina('./views/servicios.html')">Servicios</a></li>
+        <li><a href="#" onclick="cargarPagina('./views/profesionales.html')">Profesionales</a></li>
+        <li><a href="#" onclick="cargarPagina('./views/contacto.html')">Contacto</a></li>
+        <li><a href="#" onclick="cargarPagina('./views/login.html')">Admin</a></li>
+        -->
+          <li><a href="views/login.html">Admin</a></li>
+          <li><a href="views/servicios.html">Servicios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main>
+    <div class="imagenprincipal"><img src="src/images/Foto principal.jpg" alt="Foto principal de la veterinaria"></div>
+    
+</main>
+
+<footer id="footer">
+     <p><strong>Redes Sociales:</strong></p>
+        <ul>
+            <li>Instagram: <a href="https://instagram.com/VeterinariaHuellas">@VeterinariaHuellas</a></li>
+            <li>Facebook: <a href="https://facebook.com/VeterinariaHuellas">Veterinaria Huellas</a></li>
+        </ul>
+           
+      <div class="logo"><img src="src/images/Hand Drawn Paint Paw Print.jpg" alt="Logo de la veterinaria"></div>
+      <div>
+        <p><strong>Teléfonos de contacto:</strong></p>
+        <ul>
+          <li>099 123 456</li>
+          <li>2709 1234</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Dirección:</strong></p>
+        <p id="direccion">18 de Julio 2342</p>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+
 </html>
