@@ -56,6 +56,6 @@ body {
     justify-content: space-between;
 }
 
-.input label{
-    padding-bottom: 10px;
+.input input[type="button"]{
+    cursor: pointer;
 }
