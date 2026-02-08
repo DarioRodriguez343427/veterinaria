@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Reservas</title>
+</head>
+
+<body>
+    <div class="container reservas">
+        <div class="reservasCnt">
+            <form class="input" id="reservas">
+                <div>
+                    <label for="nombreCliente">Nombre del cliente</label>
+                    <input type="text" name="" id="nombreCliente">
+                </div>
+                <div>
+                    <label for="celular">Celular</label>
+                    <input type="text" name="" id="celular">
+                </div>
+                <div>
+                    <label for="correo">Email</label>
+                    <input type="email" name="" id="correo">
+                </div>
+                <div>
+                    <label for="nombreMascota">Nombre de la mascota</label>
+                    <input type="text" name="" id="nombreMascota">
+                </div>
+                <div>
+                    <label for="slcServicio">Tipo de Servicio</label>
+                    <select name="" id="slcServicio">
+                        <option value="0">- Seleccione un servicio -</option>
+                        <option value="Veterinaria">Veterinaria</option>
+                        <option value="Banio">Baño</option>
+                        <option value="Estetica">Estética</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="slcProfesional">Profesional</label>
+                    <select name="" id="slcProfesional">
+                        <option value="0">- Seleccione un profesional -</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="" id="fecha">
+                </div>
+                <div>
+                    <label for="slcHora">Hora</label>
+                    <select name="" id="slcHora">
+                        <option value="0">- Seleccione una hora -</option>
+                    </select>
+                </div>
+                <input type="submit" value="Agendar" id="btnReservas">
+            </form>
+        </div>
+    </div>
+
+    <script src="/src/core/reservas.js"></script>
+</body>
+
+</html>
