@@ -1,0 +1,273 @@
+
+/* =========================
+   RESET BÁSICO
+========================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+#encabezado {
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Primera fila del header (logo + h1 + botón) */
+#encabezado > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+}
+
+/* Logo */
+#encabezado .logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* Título */
+#encabezado h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Botón hamburguesa */
+.btn-menu {
+  border: 0;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.btn-menu:hover {
+  background: #f2f2f2;
+}
+
+/* NAV */
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links del menú */
+#nav a {
+  text-decoration: none;
+  color: #222;
+  display: block;
+  padding: 12px 14px;
+}
+
+#nav a:hover {
+  background: #f6f6f6;
+}
+
+/* Estado colapsado (OCULTO) */
+.nav-colapsado {
+  display: none;
+}
+
+/* Estado abierto (tu JS debería alternar esta clase) */
+.nav-abierto {
+  display: block;
+  border-top: 1px solid #eaeaea;
+}
+
+/* =========================
+   MAIN - PRESENTACIÓN
+========================= */
+main {
+  padding: 0;
+}
+
+/* Bloque presentación */
+.presentacion {
+  position: relative;
+
+  background-image: url("src/images/Amor por los animales.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+
+  text-align: center;
+  color: #ffffff;
+
+  padding: 40px 20px;
+}
+
+/* Overlay oscuro para contraste */
+.presentacion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* controla el contraste */
+  z-index: 1;
+}
+
+/* Asegura que el texto quede arriba del overlay */
+.presentacion-texto,
+.btn-agendar {
+  position: relative;
+  z-index: 2;
+}
+
+/* Texto principal */
+.presentacion-texto h1 {
+  margin: 0;
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 800;
+  text-decoration: none;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+
+/* Botón agendar */
+.btn-agendar {
+  display: inline-block;
+  background: #ff5a5a;   /* rojo protagonista */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover botón */
+.btn-agendar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   SERVICIOS INICIO
+========================= */
+.inicio-servicios h2 {
+  text-align: center;
+  margin: 18px 0 14px;
+  font-size: 20px;
+}
+
+/* padding entre columnas (sin usar g-*) */
+.inicio-servicios .row > [class*="col-"] {
+  padding: 8px;
+}
+
+.serv-card {
+  background: #fff;
+  border: 1px solid #ededed;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  text-align: center;
+  height: 100%;
+}
+
+.serv-img {
+  height: 210px;
+  background: #dcdcdc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position:center; 
+  object-fit: cover;
+  object-position: center;
+}
+
+.serv-card h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.serv-card p {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* imágenes distintas por servicio */
+.serv-img.consulta {
+  background-image: url("src/images/Trabajo1.jpg");
+  background-position: center top;
+
+}
+
+.serv-img.vacunacion {
+  background-image: url("src/images/Gatito\ vet.jpg");
+}
+
+.serv-img.bano {
+  background-image: url("src/images/Dog\ Wash.jpg");
+}
+
+.serv-img.corte {
+  background-image: url("src/images/Corte.jpg");
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+
+#footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+  border-top: 1px solid #eaeaea;
+  padding: 20px 24px;
+  background: #fff;
+
+}
+
+.footer-col {
+  flex: 1 1 220px;
+}
+
+#footer p {
+  margin: 0 0 6px;
+}
+
+#footer ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+#footer li {
+  margin-bottom: 6px;
+}
+
+#footer a {
+  color: #222;
+  text-decoration: underline;
+}

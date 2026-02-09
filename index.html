@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--Estilos propios-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleInicio.css">
     <title>Obligatorio taller Ingenieria de Software</title>
 </head>
+
 <body>
     
 <header id="encabezado">
@@ -32,31 +37,79 @@
   </header>
 
 <main>
-    <div class="imagenprincipal"><img src="src/images/Foto principal.jpg" alt="Foto principal de la veterinaria"></div>
-    
-</main>
 
-<footer id="footer">
-     <p><strong>Redes Sociales:</strong></p>
-        <ul>
-            <li>Instagram: <a href="https://instagram.com/VeterinariaHuellas">@VeterinariaHuellas</a></li>
-            <li>Facebook: <a href="https://facebook.com/VeterinariaHuellas">Veterinaria Huellas</a></li>
-        </ul>
-           
-      <div class="logo"><img src="src/images/Hand Drawn Paint Paw Print.jpg" alt="Logo de la veterinaria"></div>
-      <div>
-        <p><strong>Teléfonos de contacto:</strong></p>
-        <ul>
-          <li>099 123 456</li>
-          <li>2709 1234</li>
-        </ul>
+  <section class="presentacion">
+    <div class="presentacion-texto">
+      <h1>Cuidamos la salud de tus mascotas</h1>
+      <a href="views/reserva.html" class="btn-agendar">Agendar</a>
+    </div>
+
+  </section>
+
+  <section class="inicio-servicios">
+    <h2>Algunos de nuestros Servicios</h2>
+
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <article class="serv-card">
+          <div class="serv-img consulta"></div>
+          <h3>Consulta</h3>
+          <p>$1200</p>
+        </article>
       </div>
-      <div>
-        <p><strong>Dirección:</strong></p>
-        <p id="direccion">18 de Julio 2342</p>
+
+      <div class="col-6 col-md-3">
+        <article class="serv-card">
+          <div class="serv-img vacunacion"></div>
+          <h3>Vacunación</h3>
+          <p>$900</p>
+        </article>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <article class="serv-card">
+          <div class="serv-img bano"></div>
+          <h3>Baño</h3>
+          <p>$1000</p>
+        </article>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <article class="serv-card">
+          <div class="serv-img corte"></div>
+          <h3>Corte</h3>
+          <p>$1400</p>
+        </article>
       </div>
     </div>
-  </footer>
+  </section>
+
+</main>
+    
+<footer id="footer">
+     
+  <div class="footer-col">
+    <p><strong>Redes Sociales:</strong></p>
+    <ul>
+      <li>Instagram: <a href="https://instagram.com/VeterinariaHuellas">@VeterinariaHuellas</a></li>
+      <li>Facebook: <a href="https://facebook.com/VeterinariaHuellas">Veterinaria Huellas</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <p><strong>Teléfonos de contacto:</strong></p>
+    <ul>
+      <li>099 123 456</li>
+      <li>2709 1234</li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <p><strong>Dirección:</strong></p>
+    <p id="direccion">18 de Julio 2342</p>
+  </div>
+
+</footer>
 
   </body>
 
