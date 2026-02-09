@@ -4,17 +4,6 @@ if(sessionStorage.getItem("usuarioLogueado")) window.location.href = "/listadoAg
 const usuario = "Veterinaria32";
 const contrasena = "1234";
 
-const form = document.querySelector("#login");
-
-form.addEventListener("submit", function (evento) {
-  evento.preventDefault();
-
-  const usuarioIngresado = document.querySelector("#usuario").value;
-  const contrasenaIngresada = document.querySelector("#contrasena").value;
-
-  login(usuarioIngresado, contrasenaIngresada);
-});
-
 function login(usu, pass) {
   if (usu === usuario && pass === contrasena) {
     let logueado = {
