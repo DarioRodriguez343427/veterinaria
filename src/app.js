@@ -67,16 +67,16 @@ if (formReservas) {
         } else {
             let errores = "";
             if (!tieneSoloLetras(nombreCliente)) {
-                errores = "- El nombre del cliente solo puede contener letras.<br>";
+                errores = "- El nombre del cliente solo puede contener letras.<br><br>";
             }
             if (!celularValido(celular)) {
-                errores += "- El celular del cliente no es válido.<br>Recuerde que:<br>->Solo puede contener números<br>->Debe tener el formato: 09*******<br>->Debe contener 9 dígitos";
+                errores += "- El celular del cliente no es válido.<br>Recuerde que solo puede contener 9 dígitos con el formato: 09*******<br><br>";
             }
             if (!tieneSoloLetras(nombreMascota)) {
-                errores += "- El nombre de la mascota solo puede contener letras.<br>";
+                errores += "- El nombre de la mascota solo puede contener letras.<br><br>";
             }
             if (!esDiaHabil(fecha)) {
-                errores += "- La veterinaria atiende unicamente días hábiles.<br>";
+                errores += "- La veterinaria atiende únicamente días hábiles.";
                 document.querySelector("#fecha").value = "";
             }
 
