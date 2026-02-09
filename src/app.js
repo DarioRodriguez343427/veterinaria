@@ -1,27 +1,38 @@
-window.addEventListener("load", inicio);
 
-function inicio() {
-    document.querySelector("#fecha").setAttribute("min", fechaMinima());
+document.addEventListener('DOMContentLoaded', () => {
+    const ruta = window.location.pathname;
 
-    document.querySelector("#slcHora").innerHTML += cargarHorarios();
-}
+    console.log(ruta);
 
+    if(ruta === "/src/views/reservas.html"){
+        document.querySelector("#fecha").setAttribute("min", fechaMinima());
+        document.querySelector("#slcHora").innerHTML += cargarHorarios();
+    }
 
-//Login
-const formLogin = document.querySelector("#login");
-
-formLogin.addEventListener("submit", function (evento) {
-  evento.preventDefault();
-
-  const usuarioIngresado = document.querySelector("#usuario").value;
-  const contrasenaIngresada = document.querySelector("#contrasena").value;
-
-  login(usuarioIngresado, contrasenaIngresada);
+    /**
+     * traer la lista desde listadoAgenda aca, porque es cuando se inicia la pagina.
+     */
 });
 
 
+
+//Login
+
+const formLogin = document.querySelector("#login");
+
+formLogin.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const usuarioIngresado = document.querySelector("#usuario").value;
+    const contrasenaIngresada = document.querySelector("#contrasena").value;
+
+    login(usuarioIngresado, contrasenaIngresada);
+    }
+);
+
 // Reservas
 const formReservas = document.querySelector("#reservas");
+
 
 formReservas.addEventListener("submit", function (evento) {
     evento.preventDefault();
@@ -38,35 +49,36 @@ formReservas.addEventListener("submit", function (evento) {
     if (textoNulo(nombreCliente) || textoNulo(celular) || textoNulo(correo) || textoNulo(nombreMascota) || textoNulo(fecha) || opcionServicio == 0 || opcionProfesional == 0 || opcionHora == 0) {
         document.querySelector("#pResultado").style.color = "red";
         document.querySelector("#pResultado").innerHTML = "Todos los campos son obligatorios";
-    } else {
-        let errores = "";
-        if (!tieneSoloLetras(nombreCliente)) {
-            errores = "- El nombre del cliente solo puede contener letras.<br>";
-        }
-        if (!celularValido(celular)) {
-            errores += "- El celular del cliente no es válido.<br>Recuerde que:<br>->Solo puede contener números<br>->Debe tener el formato: 09*******<br>->Debe contener 9 dígitos";
-        }
-        if (!tieneSoloLetras(nombreMascota)) {
-            errores += "- El nombre de la mascota solo puede contener letras.<br>";
-        }
-        if (!esDiaHabil(fecha)) {
-            errores += "- La veterinaria atiende unicamente días hábiles.<br>";
-            document.querySelector("#fecha").value = "";
-        }
+        } else {
+            let errores = "";
+            if (!tieneSoloLetras(nombreCliente)) {
+                errores = "- El nombre del cliente solo puede contener letras.<br>";
+            }
+            if (!celularValido(celular)) {
+                errores += "- El celular del cliente no es válido.<br>Recuerde que:<br>->Solo puede contener números<br>->Debe tener el formato: 09*******<br>->Debe contener 9 dígitos";
+            }
+            if (!tieneSoloLetras(nombreMascota)) {
+                errores += "- El nombre de la mascota solo puede contener letras.<br>";
+            }
+            if (!esDiaHabil(fecha)) {
+                errores += "- La veterinaria atiende unicamente días hábiles.<br>";
+                document.querySelector("#fecha").value = "";
+            }
 
-        if (errores !== "") {
-            document.querySelector("#pResultado").style.color = "red";
-            document.querySelector("#pResultado").innerHTML = errores;
-        } else {            
-            let reservas = JSON.parse(localStorage.getItem('reservas')) || [];
-            
-            const nuevaReserva = [nombreCliente, celular, correo, nombreMascota, opcionServicio, opcionProfesional, fecha, opcionHora];
-            reservas.push(nuevaReserva);
-            
-            localStorage.setItem('reservas', JSON.stringify(reservas));
+            if (errores !== "") {
+                document.querySelector("#pResultado").style.color = "red";
+                document.querySelector("#pResultado").innerHTML = errores;
+            } else {            
+                let reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+                
+                const nuevaReserva = [nombreCliente, celular, correo, nombreMascota, opcionServicio, opcionProfesional, fecha, opcionHora];
+                reservas.push(nuevaReserva);
+                
+                localStorage.setItem('reservas', JSON.stringify(reservas));
 
-            document.querySelector("#pResultado").style.color = "black";
-            document.querySelector("#pResultado").innerHTML = "Reserva realizada con éxito.";
+                document.querySelector("#pResultado").style.color = "black";
+                document.querySelector("#pResultado").innerHTML = "Reserva realizada con éxito.";
+            }
         }
     }
-});
+);

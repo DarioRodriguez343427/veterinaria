@@ -12,10 +12,9 @@ function login(usu, pass) {
     }
     sessionStorage.setItem("usuarioLogueado", JSON.stringify(logueado));
     console.log("login exitoso");
-    window.location.href = "/listadoAgenda.html";
+    window.location.href = "./listadoAgenda.html";
     
   } else {
     console.log("todo mal");
-    window.location.href = "login.html";
   }
 }
