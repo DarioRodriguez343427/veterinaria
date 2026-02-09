@@ -1,32 +1,60 @@
 
 
-
-/* ====== Grid ====== */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+/* Espaciado general de la página */
+.container {
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
-@media (max-width: 980px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+/* Títulos */
+.page-title {
+  font-size: 34px;
+  margin: 0 0 12px;
 }
 
-@media (max-width: 640px) {
-  .services-grid { grid-template-columns: 1fr; }
+.section-title {
+  font-size: 24px;
+  margin: 18px 0 12px;
 }
 
-/* ====== Card ====== */
+/* Separación entre columnas/filas */
+.services-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.services-row > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+/* Card */
 .service-card {
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  padding: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  border: 1px solid rgba(17, 24, 39, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.service-card p {
+  margin: 0 0 10px;
+  line-height: 1.45;
+}
+
+.service-card p strong {
+  display: inline-block;
+  min-width: 86px; /* alinea "Duración:" y "Precio:" */
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 35px rgba(0,0,0,0.10);
+  transform: translateY(-2px);
+  transition: transform 0.15s ease;
 }

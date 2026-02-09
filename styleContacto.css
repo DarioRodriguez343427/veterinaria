@@ -1,0 +1,89 @@
+/* =========================
+   CONTACTO
+========================= */
+* { box-sizing: border-box; }
+
+.contact-info,
+.map-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Título principal */
+.contact-info h1 {
+  font-size: 34px;
+  margin: 0 0 14px;
+}
+
+/* Caja de datos */
+.contactinfo-details {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  padding: 18px 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* Subtítulo */
+.contactinfo-details h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.contactinfo-details p {
+  margin: 8px 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Separadores “como el mock” */
+.contactinfo-details .sep {
+  border: 0;
+  border-top: 1px solid #eaeaea;
+  margin: 14px 0;
+}
+
+/* Listas */
+.contactinfo-details ul {
+  margin: 6px 0 10px;
+  padding-left: 18px;
+}
+
+.contactinfo-details li {
+  margin-bottom: 6px;
+}
+
+/* Links */
+.contactinfo-details a {
+  color: #222;
+  text-decoration: underline;
+}
+
+.contactinfo-details a:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   MAPA
+========================= */
+.map-section h2 {
+  font-size: 22px;
+  margin: 18px 0 12px;
+}
+
+.map-container {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  overflow: hidden; 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+
+.map-container iframe {
+  width: 100%;
+  height: 390px;
+  border: 0;
+  display: block;
+}
