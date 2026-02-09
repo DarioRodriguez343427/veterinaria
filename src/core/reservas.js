@@ -1,6 +1,6 @@
-let sesion = sessionStorage.getItem("usuarioLogueado");
+// let sesion = sessionStorage.getItem("usuarioLogueado");
 
-if(!sesion) {
-    console.log("usuario no autorizado");
-    window.location.href = "/";
-}
+// if(!sesion) {
+//     console.log("usuario no autorizado");
+//     window.location.href = "/";
+// }
