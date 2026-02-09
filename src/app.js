@@ -11,20 +11,39 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 });
 
-//Login    
+
+
+
+//----------------LOGIN-----------------------//
 const formLogin = document.querySelector("#login");
 
 if (formLogin) {
-    formLogin.addEventListener("submit", function (evento) {
-        evento.preventDefault();
+  formLogin.addEventListener("submit", function (evento) {
+    evento.preventDefault();
 
-        const usuarioIngresado = document.querySelector("#usuario").value;
-        const contrasenaIngresada = document.querySelector("#contrasena").value;
+    const txtMensaje = document.querySelector("#txtMensajeLogin");
+    let mensaje = "";
 
-        login(usuarioIngresado, contrasenaIngresada);
+    if (formLogin.usuario.value === "" || formLogin.password.value === "") {
+      txtMensaje.innerHTML = "Todos los campos son obligatorios";
+      formLogin.reset();
+      return;
     }
-    );
+
+    const resultadoLogin = login(formLogin);
+
+    if (resultadoLogin === null) {
+      mensaje = "Datos incorrectos, intente nuevamente";
+      formLogin.reset();
+    }
+
+    txtMensaje.innerHTML = mensaje;
+  });
 }
+
+
+
+
 
 // Reservas
 const formReservas = document.querySelector("#reservas");
