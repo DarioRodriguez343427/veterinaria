@@ -66,19 +66,22 @@ function fechaMinima() {
     return fechaMinima;
 }
 
-function cargarHorarios() {
+function cargarHorarios(servicio) {
     let horaInicio = 9;
     let horaFin = 18;
-    var opciones = "";
+    let intervalo = 60; // Intervalo por defecto en minutos
+
+    if (servicio === "Veterinaria") {
+        intervalo = 30; // Consultas médicas más largas
+    }
+
+    let opciones = '<option value="0">- Seleccione una hora -</option>';
 
     for (let hora = horaInicio; hora < horaFin; hora++) {
-        for (let minutos = 0; minutos < 60; minutos += 30) {
-            // Formatear hora y minutos (añadir cero a la izquierda si < 10)
+        for (let minutos = 0; minutos < 60; minutos += intervalo) {
             let horaFormateada = String(hora).padStart(2, '0');
             let minFormateado = String(minutos).padStart(2, '0');
             let tiempo = `${horaFormateada}:${minFormateado}`;
-
-            // Crear opción y añadir al select
             opciones += `<option value="${tiempo}">${tiempo}</option>`;            
         }
     }
