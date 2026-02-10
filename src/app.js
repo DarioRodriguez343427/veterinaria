@@ -11,8 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 });
 
+//----------------MENU-----------------------//
 
+  function mostrarMenu() {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("nav-abierto");
+    nav.classList.toggle("nav-colapsado");
+  }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("nav");
+        nav.classList.add("nav-colapsado");
+        nav.classList.remove("nav-abierto");
+      });
+    });
+  });
+
+//----------------HEADER-----------------------//
+const headerPath = location.pathname.includes("/src/views/")
+  ? "header.html"
+  : "src/views/header.html";
+
+fetch(headerPath)
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header").innerHTML = html;
+  })
+  .catch(err => console.error("Error cargando header:", err));
 
 //----------------LOGIN-----------------------//
 const formLogin = document.querySelector("#login");
