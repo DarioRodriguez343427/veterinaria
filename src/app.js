@@ -59,11 +59,11 @@ if (formReservas) {
 
                 let opcionesProfesionales = '<option value="0">- Seleccione un profesional -</option>';
                 if (servicioSeleccionado == "Veterinaria") {
-                    opcionesProfesionales += '<option value="JuanaAlvarez">Juana Alvarez</option>';
+                    opcionesProfesionales += '<option value="JuanaAlvarez">Juana Alvárez</option>';
                 } else if (servicioSeleccionado == "Banio") {
                     opcionesProfesionales += '<option value="PedroAcosta">Pedro Acosta</option>';
                 } else {
-                    opcionesProfesionales += '<option value="SofiaPerez">Sofia Perez</option>';
+                    opcionesProfesionales += '<option value="SofiaPerez">Sofia Pérez</option>';
                 }
                 document.querySelector("#slcProfesional").innerHTML = opcionesProfesionales
 
