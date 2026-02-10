@@ -18,37 +18,61 @@ document.addEventListener('DOMContentLoaded', () => {
 const formLogin = document.querySelector("#login");
 
 if (formLogin) {
-  formLogin.addEventListener("submit", function (evento) {
-    evento.preventDefault();
+    formLogin.addEventListener("submit", function (evento) {
+        evento.preventDefault();
 
-    const txtMensaje = document.querySelector("#txtMensajeLogin");
-    let mensaje = "";
+        const txtMensaje = document.querySelector("#txtMensajeLogin");
+        let mensaje = "";
 
-    if (formLogin.usuario.value === "" || formLogin.password.value === "") {
-      txtMensaje.innerHTML = "Todos los campos son obligatorios";
-      formLogin.reset();
-      return;
-    }
+        if (formLogin.usuario.value === "" || formLogin.password.value === "") {
+            txtMensaje.innerHTML = "Todos los campos son obligatorios";
+            formLogin.reset();
+            return;
+        }
 
-    const resultadoLogin = login(formLogin);
+        const resultadoLogin = login(formLogin);
 
-    if (resultadoLogin === null) {
-      mensaje = "Datos incorrectos, intente nuevamente";
-      formLogin.reset();
-    }
+        if (resultadoLogin === null) {
+            mensaje = "Datos incorrectos, intente nuevamente";
+            formLogin.reset();
+        }
 
-    txtMensaje.innerHTML = mensaje;
-  });
+        txtMensaje.innerHTML = mensaje;
+    });
 }
 
 
 
-
-
-// Reservas
+//----------------------- RESERVAS -----------------------//
 const formReservas = document.querySelector("#reservas");
 
 if (formReservas) {
+    const slcServicio = document.querySelector("#slcServicio");
+    const slcHora = document.querySelector("#slcHora");
+
+    if (slcServicio && slcHora) {
+        slcServicio.addEventListener("change", function () {
+            const servicioSeleccionado = slcServicio.value;
+
+            if (servicioSeleccionado !== "0") {
+                slcHora.innerHTML = cargarHorarios(servicioSeleccionado);
+
+                let opcionesProfesionales = '<option value="0">- Seleccione un profesional -</option>';
+                if (servicioSeleccionado == "Veterinaria") {
+                    opcionesProfesionales += '<option value="JuanaAlvarez">Juana Alvarez</option>';
+                } else if (servicioSeleccionado == "Banio") {
+                    opcionesProfesionales += '<option value="PedroAcosta">Pedro Acosta</option>';
+                } else {
+                    opcionesProfesionales += '<option value="SofiaPerez">Sofia Perez</option>';
+                }
+                document.querySelector("#slcProfesional").innerHTML = opcionesProfesionales
+
+            } else {
+                slcHora.innerHTML = '<option value="0">- Seleccione una hora -</option>';
+            }
+        });
+    }
+
     formReservas.addEventListener("submit", function (evento) {
         evento.preventDefault();
 

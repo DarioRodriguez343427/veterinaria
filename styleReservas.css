@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #4a90e2;
+    --primary-color: #ff5a5a;
     --bg-color: #f8f9fa;
     --border-radius: 8px;
 }
@@ -12,6 +12,8 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
 }
 
 .container {
@@ -58,14 +60,30 @@ body {
     }
 }
 
-/* Estilos de inputs y labels */
-.input div { display: flex; flex-direction: column; }
+/* Centrado del título principal */
+.reservasCnt h1 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    width: 100%; /* Asegura que ocupe todo el ancho para centrarse bien */
+}
+
+
+/* Ajuste para centrar los labels */
+.input div {
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Centra el texto del label */
+}
 
 label {
     font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     color: #444;
+    display: block;
 }
 
 input, select {
@@ -73,23 +91,36 @@ input, select {
     border: 1px solid #ccc;
     border-radius: var(--border-radius);
     font-family: inherit;
+    text-align: center;
+    text-align-last: center; /* Específico para que los select también se centren */
 }
 
 #btnReservas {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #bd4242 100%);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
-    font-weight: 600;
-    border-radius: var(--border-radius);
+    padding: 1.1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase; /* Lo hace ver más como un llamado a la acción */
+    letter-spacing: 1px;
+    border-radius: 50px; /* Bordes redondeados tipo píldora para estilo moderno */
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-    margin-top: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 20px rgba(189, 66, 66, 0.4);
+    margin-top: 1.5rem;
+    width: 100%;
 }
 
 #btnReservas:hover {
-    background-color: #357abd;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #bd4242 0%, var(--primary-color) 100%);
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 10px 25px rgba(189, 66, 66, 0.5);
+}
+
+#btnReservas:active {
+    transform: translateY(1px); /* Efecto de pulsación */
+    box-shadow: 0 4px 10px rgba(189, 66, 66, 0.3);
 }
 
 #pResultado {
