@@ -1,0 +1,73 @@
+/* Espaciado general de la página */
+.container {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+/* Títulos */
+.page-title {
+  font-size: 34px;
+  margin: 0 0 12px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin: 18px 0 12px;
+}
+
+/* Separación entre columnas/filas */
+.services-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.services-row > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.service-card {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  height: 100%;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.service-card p {
+  margin: 0 0 10px;
+  line-height: 1.45;
+}
+
+.service-card p strong {
+  display: inline-block;
+  min-width: 86px; /* alinea "Duración:" y "Precio:" */
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.15s ease;
+}
+
+/* imágenes para cada profesinal */
+.serv-img.juana {
+  background-image: url("src/images/Trabajo1.jpg");
+  background-position: center top;
+
+}
+
+.serv-img.pedro {
+  background-image: url("src/images/Gatito\ vet.jpg");
+}
+
+.serv-img.sofia {
+  background-image: url("src/images/Dog\ Wash.jpg");
+}
