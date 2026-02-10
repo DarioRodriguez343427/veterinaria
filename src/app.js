@@ -41,6 +41,49 @@ if (formLogin) {
     });
 }
 
+/**
+ * listar reservas
+ */
+
+const tablaRegistros = document.querySelector("#tablaListaReservas");
+
+if (tablaRegistros) {
+  const registros = importarRegistros();
+
+  if (registros && registros.length > 0) {
+    let mensaje = `
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Celular</th>
+          <th>Email</th>
+          <th>Mascota</th>
+          <th>Servicio</th>
+          <th>Profesional</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+    `;
+
+    registros.forEach(registro => {
+      mensaje += "<tr>";
+
+      registro.forEach(valor => {
+        mensaje += `<td>${valor}</td>`;
+      });
+
+      mensaje += "</tr>";
+    });
+
+    mensaje += "</tbody>";
+
+    document.querySelector("#tablaListaReservas").innerHTML = mensaje;
+  } else {
+    document.querySelector("#txtMensajeListaReservas").innerHTML = "No hay registros";
+  }
+}
 
 
 //----------------------- RESERVAS -----------------------//
