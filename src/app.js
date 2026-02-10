@@ -86,11 +86,7 @@ if (tablaRegistros) {
 }
 
 
-<<<<<<< HEAD
 // Reservas
-=======
-//----------------------- RESERVAS -----------------------//
->>>>>>> 55314a6eed365d8586f31837c58ce00bb5b7c334
 const formReservas = document.querySelector("#reservas");
 
 if (formReservas) {
