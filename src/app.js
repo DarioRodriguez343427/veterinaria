@@ -47,7 +47,6 @@ if (formLogin) {
 
 const tablaRegistros = document.querySelector("#tablaListaReservas");
 
-<<<<<<< HEAD
 if (tablaRegistros) {
   const registros = importarRegistros();
 
@@ -88,9 +87,6 @@ if (tablaRegistros) {
 
 
 // Reservas
-=======
-//----------------------- RESERVAS -----------------------//
->>>>>>> efaa798d0fcde01c587236f8c4b75c00493befbc
 const formReservas = document.querySelector("#reservas");
 
 if (formReservas) {
