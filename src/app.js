@@ -153,6 +153,20 @@ if (formReservas) {
             } else {
                 let reservas = JSON.parse(localStorage.getItem('reservas')) || [];
 
+                if(opcionServicio == "Banio"){
+                    opcionServicio = "Baño";
+                }else if(opcionServicio == "Estetica"){
+                    opcionServicio = "Estética";
+                }
+
+                if(opcionProfesional == "JuanaAlvarez"){
+                    opcionProfesional = "Juana Alvárez";
+                }else if(opcionProfesional == "PedroAcosta"){
+                    opcionProfesional = "Pedro Acosta";
+                }else {
+                    opcionProfesional = "Sofia Pérez";
+                }
+                
                 const nuevaReserva = [nombreCliente, celular, correo, nombreMascota, opcionServicio, opcionProfesional, fecha, opcionHora];
                 reservas.push(nuevaReserva);
 
