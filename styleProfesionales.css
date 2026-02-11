@@ -1,73 +1,73 @@
-/* Espaciado general de la página */
+/* Estilo general del contenedor */
 .container {
-  padding-top: 20px;
-  padding-bottom: 30px;
+    padding: 40px 15px;
+    text-align: center;
 }
 
-/* Títulos */
-.page-title {
-  font-size: 34px;
-  margin: 0 0 12px;
+h1 {
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 700;
 }
 
-.section-title {
-  font-size: 24px;
-  margin: 18px 0 12px;
+/* Espaciado responsivo */
+.row.g-4 {
+    padding: 10px; /* Margen interno para que las sombras no se corten en los bordes */
 }
 
-/* Separación entre columnas/filas */
-.services-row {
-  margin-left: -10px;
-  margin-right: -10px;
+/* Diseño de la Tarjeta */
+.prof-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Para que todas midan lo mismo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Margen inferior extra para seguridad en móviles antiguos */
+    margin-bottom: 10px; 
 }
 
-.services-row > [class*="col-"] {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 20px;
+/* Efecto al pasar el mouse */
+.prof-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Card */
-.service-card {
-  background: #fff;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  height: 100%;
+/* Contenedor de la imagen */
+.prof-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 5px solid #f8f9fa;
 }
 
-.service-card h3 {
-  font-size: 20px;
-  margin: 0 0 8px;
+.prof-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la foto se deforme */
 }
 
-.service-card p {
-  margin: 0 0 10px;
-  line-height: 1.45;
+/* Textos */
+.prof-card h3 {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
-.service-card p strong {
-  display: inline-block;
-  min-width: 86px; /* alinea "Duración:" y "Precio:" */
+.prof-card p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.4;
 }
 
-.service-card:hover {
-  transform: translateY(-2px);
-  transition: transform 0.15s ease;
-}
-
-/* imágenes para cada profesinal */
-.serv-img.juana {
-  background-image: url("src/images/Trabajo1.jpg");
-  background-position: center top;
-
-}
-
-.serv-img.pedro {
-  background-image: url("src/images/Gatito\ vet.jpg");
-}
-
-.serv-img.sofia {
-  background-image: url("src/images/Dog\ Wash.jpg");
-}
+/* Ajuste opcional para los colores de borde según la persona */
+.juana { border-color: #e83e8c; }
+.pedro { border-color: #007bff; }
+.sofia { border-color: #20c997; }
