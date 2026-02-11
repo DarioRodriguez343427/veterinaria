@@ -105,7 +105,7 @@ main {
 .presentacion {
   position: relative;
 
-  background-image: url("src/images/Amor por los animales.jpg");
+  background-image: url("src/images/Amor por los animales.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -218,21 +218,21 @@ main {
 
 /* imágenes distintas por servicio */
 .serv-img.consulta {
-  background-image: url("src/images/Trabajo1.jpg");
+  background-image: url("src/images/Trabajo1.webp");
   background-position: center top;
 
 }
 
 .serv-img.vacunacion {
-  background-image: url("src/images/Gatito\ vet.jpg");
+  background-image: url("src/images/Gatito\ vet.webp");
 }
 
 .serv-img.bano {
-  background-image: url("src/images/Dog\ Wash.jpg");
+  background-image: url("src/images/Dog\ Wash.webp");
 }
 
 .serv-img.corte {
-  background-image: url("src/images/Corte.jpg");
+  background-image: url("src/images/Corte.webp");
 }
 
 /* =========================
