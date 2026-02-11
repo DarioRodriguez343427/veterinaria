@@ -73,11 +73,46 @@ if (formLogin) {
  */
 
 const tablaRegistros = document.querySelector("#tablaListaReservas");
+const contenedorCards = document.querySelector("#contenedorCards");
+const txtMensaje = document.querySelector("#txtMensajeListaReservas");
 
-if (tablaRegistros) {
+function renderVista() {
+
   const registros = importarRegistros();
 
-  if (registros && registros.length > 0) {
+  tablaRegistros.innerHTML = "";
+  contenedorCards.innerHTML = "";
+  txtMensaje.innerHTML = "";
+
+  if (!registros || registros.length === 0) {
+    txtMensaje.innerHTML = "No hay registros";
+    return;
+  }
+
+  if (window.innerWidth <= 768) {
+
+    registros.forEach(registro => {
+      contenedorCards.innerHTML += `
+        <div class="card-reserva">
+          <details>
+            <summary>
+              <span>${registro[0]}</span>
+              <span>${registro[6]} ${registro[7]}</span>
+            </summary>
+
+            <p><strong>Celular:</strong> ${registro[1]}</p>
+            <p><strong>Email:</strong> ${registro[2]}</p>
+            <p><strong>Mascota:</strong> ${registro[3]}</p>
+            <p><strong>Servicio:</strong> ${registro[4]}</p>
+            <p><strong>Profesional:</strong> ${registro[5]}</p>
+          </details>
+        </div>
+      `;
+    });
+
+  } 
+  else {
+
     let mensaje = `
       <thead>
         <tr>
@@ -106,11 +141,13 @@ if (tablaRegistros) {
 
     mensaje += "</tbody>";
 
-    document.querySelector("#tablaListaReservas").innerHTML = mensaje;
-  } else {
-    document.querySelector("#txtMensajeListaReservas").innerHTML = "No hay registros";
+    tablaRegistros.innerHTML = mensaje;
   }
 }
+
+window.addEventListener("load", renderVista);
+window.addEventListener("resize", renderVista);
+
 
 
 // Reservas
