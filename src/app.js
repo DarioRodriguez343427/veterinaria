@@ -71,83 +71,87 @@ if (formLogin) {
 /**
  * listar reservas
  */
+const bodyListadoRegistros = document.querySelector("#ListaReservas");
 
-const tablaRegistros = document.querySelector("#tablaListaReservas");
-const contenedorCards = document.querySelector("#contenedorCards");
-const txtMensaje = document.querySelector("#txtMensajeListaReservas");
+if(bodyListadoRegistros) {
+    const tablaRegistros = document.querySelector("#tablaListaReservas");
+    const contenedorCards = document.querySelector("#contenedorCards");
+    const txtMensaje = document.querySelector("#txtMensajeListaReservas");
 
-function renderVista() {
+    function renderVista() {
 
-  const registros = importarRegistros();
+    const registros = importarRegistros();
 
-  tablaRegistros.innerHTML = "";
-  contenedorCards.innerHTML = "";
-  txtMensaje.innerHTML = "";
+    tablaRegistros.innerHTML = "";
+    contenedorCards.innerHTML = "";
+    txtMensaje.innerHTML = "";
 
-  if (!registros || registros.length === 0) {
-    txtMensaje.innerHTML = "No hay registros";
-    return;
-  }
+    if (!registros || registros.length === 0) {
+        txtMensaje.innerHTML = "No hay registros";
+        return;
+    }
 
-  if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 768) {
 
-    registros.forEach(registro => {
-      contenedorCards.innerHTML += `
-        <div class="card-reserva">
-          <details>
-            <summary>
-              <span>${registro[0]}</span>
-              <span>${registro[6]} ${registro[7]}</span>
-            </summary>
+        registros.forEach(registro => {
+        contenedorCards.innerHTML += `
+            <div class="card-reserva">
+            <details>
+                <summary>
+                <span>${registro[0]}</span>
+                <span>${registro[6]} ${registro[7]}</span>
+                </summary>
 
-            <p><strong>Celular:</strong> ${registro[1]}</p>
-            <p><strong>Email:</strong> ${registro[2]}</p>
-            <p><strong>Mascota:</strong> ${registro[3]}</p>
-            <p><strong>Servicio:</strong> ${registro[4]}</p>
-            <p><strong>Profesional:</strong> ${registro[5]}</p>
-          </details>
-        </div>
-      `;
-    });
+                <p><strong>Celular:</strong> ${registro[1]}</p>
+                <p><strong>Email:</strong> ${registro[2]}</p>
+                <p><strong>Mascota:</strong> ${registro[3]}</p>
+                <p><strong>Servicio:</strong> ${registro[4]}</p>
+                <p><strong>Profesional:</strong> ${registro[5]}</p>
+            </details>
+            </div>
+        `;
+        });
 
-  } 
-  else {
+    } 
+    else {
 
-    let mensaje = `
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Celular</th>
-          <th>Email</th>
-          <th>Mascota</th>
-          <th>Servicio</th>
-          <th>Profesional</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-        </tr>
-      </thead>
-      <tbody>
-    `;
+        let mensaje = `
+        <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Celular</th>
+            <th>Email</th>
+            <th>Mascota</th>
+            <th>Servicio</th>
+            <th>Profesional</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+        `;
 
-    registros.forEach(registro => {
-      mensaje += "<tr>";
+        registros.forEach(registro => {
+        mensaje += "<tr>";
 
-      registro.forEach(valor => {
-        mensaje += `<td>${valor}</td>`;
-      });
+        registro.forEach(valor => {
+            mensaje += `<td>${valor}</td>`;
+        });
 
-      mensaje += "</tr>";
-    });
+        mensaje += "</tr>";
+        });
 
-    mensaje += "</tbody>";
+        mensaje += "</tbody>";
 
-    tablaRegistros.innerHTML = mensaje;
-  }
+        tablaRegistros.innerHTML = mensaje;
+    }
+    }
+
+
+    window.addEventListener("load", renderVista);
+    window.addEventListener("resize", renderVista);
+
 }
-
-window.addEventListener("load", renderVista);
-window.addEventListener("resize", renderVista);
-
 
 
 // Reservas
