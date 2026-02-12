@@ -1,10 +1,10 @@
-export function textoNulo(texto) {
+function textoNulo(texto) {
     if (texto.length == 0) {
         return true;
     }
 }
 
-export function tieneSoloLetras(texto) {
+function tieneSoloLetras(texto) {
     let resp = true;
     let minus = "qwertyuiopasdfghjklñzxcvbnm ";
     texto = texto.toLowerCase();
@@ -87,3 +87,12 @@ function cargarHorarios(servicio) {
     }
     return opciones;
 }
+
+module.exports = {
+    textoNulo,
+    tieneSoloLetras,
+    celularValido,
+    esDiaHabil,
+    fechaMinima,
+    cargarHorarios
+};

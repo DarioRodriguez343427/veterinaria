@@ -4,42 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ruta === "/src/views/reservas.html") {
         document.querySelector("#fecha").setAttribute("min", fechaMinima());
         document.querySelector("#slcHora").innerHTML += cargarHorarios();
+    } else if (ruta === "/src/views/login.html" && sessionStorage.getItem("usuarioLogueado")) {
+        window.location.href = "./listadoAgenda.html";
+    } else if (ruta === "/src/views/listadoAgenda.html" && !sessionStorage.getItem("usuarioLogueado")) {
+        window.location.href = "/";
     }
-
-    /**
-     * traer la lista desde listadoAgenda aca, porque es cuando se inicia la pagina.
-     */
 });
 
-//----------------MENU-----------------------//
-
-  function mostrarMenu() {
+//---------------- MENU -----------------------//
+function mostrarMenu() {
     const nav = document.getElementById("nav");
     nav.classList.toggle("nav-abierto");
     nav.classList.toggle("nav-colapsado");
-  }
+}
 
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("#nav a").forEach(link => {
-      link.addEventListener("click", () => {
-        const nav = document.getElementById("nav");
-        nav.classList.add("nav-colapsado");
-        nav.classList.remove("nav-abierto");
-      });
+        link.addEventListener("click", () => {
+            const nav = document.getElementById("nav");
+            nav.classList.add("nav-colapsado");
+            nav.classList.remove("nav-abierto");
+        });
     });
-  });
+});
 
-//----------------HEADER-----------------------//
+//---------------- HEADER -----------------------//
 const headerPath = location.pathname.includes("/src/views/")
-  ? "header.html"
-  : "src/views/header.html";
+    ? "header.html"
+    : "src/views/header.html";
 
 fetch(headerPath)
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("header").innerHTML = html;
-  })
-  .catch(err => console.error("Error cargando header:", err));
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("header").innerHTML = html;
+    })
+    .catch(err => console.error("Error cargando header:", err));
 
 //----------------LOGIN-----------------------//
 const formLogin = document.querySelector("#login");
@@ -57,44 +56,47 @@ if (formLogin) {
             return;
         }
 
-        const resultadoLogin = login(formLogin);
-
-        if (resultadoLogin === null) {
+        if (!existeUsuario(formLogin)) {
             mensaje = "Datos incorrectos, intente nuevamente";
             formLogin.reset();
+        } else {
+            const usuarioLogueado = {
+                usuario: formLogin.usuario.value,
+                password: formLogin.password.value
+            };
+            sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
+            window.location.href = "./listadoAgenda.html";
         }
 
         txtMensaje.innerHTML = mensaje;
     });
 }
 
-/**
- * listar reservas
- */
+//---------------- LISTADO DE RESERVAS -----------------------//
 const bodyListadoRegistros = document.querySelector("#ListaReservas");
 
-if(bodyListadoRegistros) {
+if (bodyListadoRegistros) {
     const tablaRegistros = document.querySelector("#tablaListaReservas");
     const contenedorCards = document.querySelector("#contenedorCards");
     const txtMensaje = document.querySelector("#txtMensajeListaReservas");
 
     function renderVista() {
 
-    const registros = importarRegistros();
+        const registros = importarRegistros();
 
-    tablaRegistros.innerHTML = "";
-    contenedorCards.innerHTML = "";
-    txtMensaje.innerHTML = "";
+        tablaRegistros.innerHTML = "";
+        contenedorCards.innerHTML = "";
+        txtMensaje.innerHTML = "";
 
-    if (!registros || registros.length === 0) {
-        txtMensaje.innerHTML = "No hay registros";
-        return;
-    }
+        if (!registros || registros.length === 0) {
+            txtMensaje.innerHTML = "No hay registros";
+            return;
+        }
 
-    if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 768) {
 
-        registros.forEach(registro => {
-        contenedorCards.innerHTML += `
+            registros.forEach(registro => {
+                contenedorCards.innerHTML += `
             <div class="card-reserva">
             <details>
                 <summary>
@@ -110,12 +112,12 @@ if(bodyListadoRegistros) {
             </details>
             </div>
         `;
-        });
+            });
 
-    } 
-    else {
+        }
+        else {
 
-        let mensaje = `
+            let mensaje = `
         <thead>
             <tr>
             <th>Nombre</th>
@@ -131,20 +133,20 @@ if(bodyListadoRegistros) {
         <tbody>
         `;
 
-        registros.forEach(registro => {
-        mensaje += "<tr>";
+            registros.forEach(registro => {
+                mensaje += "<tr>";
 
-        registro.forEach(valor => {
-            mensaje += `<td>${valor}</td>`;
-        });
+                registro.forEach(valor => {
+                    mensaje += `<td>${valor}</td>`;
+                });
 
-        mensaje += "</tr>";
-        });
+                mensaje += "</tr>";
+            });
 
-        mensaje += "</tbody>";
+            mensaje += "</tbody>";
 
-        tablaRegistros.innerHTML = mensaje;
-    }
+            tablaRegistros.innerHTML = mensaje;
+        }
     }
 
 
@@ -154,7 +156,7 @@ if(bodyListadoRegistros) {
 }
 
 
-// Reservas
+//---------------- AGENDA DE RESERVAS -----------------------//
 const formReservas = document.querySelector("#reservas");
 
 if (formReservas) {
@@ -221,20 +223,20 @@ if (formReservas) {
             } else {
                 let reservas = JSON.parse(localStorage.getItem('reservas')) || [];
 
-                if(opcionServicio == "Banio"){
+                if (opcionServicio == "Banio") {
                     opcionServicio = "Baño";
-                }else if(opcionServicio == "Estetica"){
+                } else if (opcionServicio == "Estetica") {
                     opcionServicio = "Estética";
                 }
 
-                if(opcionProfesional == "JuanaAlvarez"){
+                if (opcionProfesional == "JuanaAlvarez") {
                     opcionProfesional = "Juana Alvárez";
-                }else if(opcionProfesional == "PedroAcosta"){
+                } else if (opcionProfesional == "PedroAcosta") {
                     opcionProfesional = "Pedro Acosta";
-                }else {
+                } else {
                     opcionProfesional = "Sofia Pérez";
                 }
-                
+
                 const nuevaReserva = [nombreCliente, celular, correo, nombreMascota, opcionServicio, opcionProfesional, fecha, opcionHora];
                 reservas.push(nuevaReserva);
 
