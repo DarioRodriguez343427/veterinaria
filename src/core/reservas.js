@@ -1,10 +1,10 @@
-function textoNulo(texto) {
+export function textoNulo(texto) {
     if (texto.length == 0) {
         return true;
     }
 }
 
-function tieneSoloLetras(texto) {
+export function tieneSoloLetras(texto) {
     let resp = true;
     let minus = "qwertyuiopasdfghjklñzxcvbnm ";
     texto = texto.toLowerCase();

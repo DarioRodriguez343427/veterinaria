@@ -1,0 +1,11 @@
+# Ignorar carpetas de compilación comunes
+/bin/
+/obj/
+
+# Ignorar archivos específicos de usuario de VS
+*.suo
+*.user
+.vs/
+
+# Ignorar módulos de Node.js si aplicable
+node_modules/
