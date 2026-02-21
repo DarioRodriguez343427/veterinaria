@@ -11,7 +11,7 @@ test('alguna credencial vacia', function () {
     expect(existeUsuario(credenciales)).toBeFalsy();
 });
 
-test('credencialas incorrectas', function () {
+test('credenciales incorrectas', function () {
     const credenciales = {
         usuario: { value: "prueba" },
         password: { value: "contra" }

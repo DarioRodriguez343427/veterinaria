@@ -2,9 +2,7 @@ const {
     textoNulo,
     tieneSoloLetras,
     celularValido,
-    esDiaHabil,
-    fechaMinima,
-    cargarHorarios
+    esDiaHabil
 } = require('./reservas');
 
 
