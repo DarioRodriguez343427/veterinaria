@@ -71,6 +71,12 @@
   color: #374151;
 }
 
+#btnCerrarSesion {
+  position: absolute;
+  right: 10px;
+  top: 100px;
+}
+
 @media (max-width: 768px) {
   .tabla {
     display: none;

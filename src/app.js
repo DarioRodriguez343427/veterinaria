@@ -80,6 +80,13 @@ if (bodyListadoRegistros) {
     const contenedorCards = document.querySelector("#contenedorCards");
     const txtMensaje = document.querySelector("#txtMensajeListaReservas");
 
+    const btnCerrarSesion = document.querySelector("#btnCerrarSesion").addEventListener("click", cerrarSesion);
+    
+    function cerrarSesion(){
+        sessionStorage.clear();
+        window.location.href = "/";
+    }
+
     function renderVista() {
 
         const registros = importarRegistros();
