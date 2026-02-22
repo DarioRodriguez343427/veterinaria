@@ -1,26 +1,44 @@
-/*clases globales*/
-input{
-    width: 100%;
+/* =========================
+   VARIABLES
+========================= */
+:root {
+    --celeste: rgb(225, 254, 255);
+    --gris-oscuro: rgb(202, 202, 202);
+    --negro: rgb(16, 16, 16);
+
+    --primary-color: #ff5a5a;
+    --second-color: #78e0d0;
+    --bg-color: #f8f9fa;
+    --border-radius: 8px;
+}
+
+/* =========================
+   RESET BÁSICO
+========================= */
+* {
     box-sizing: border-box;
-    height: 30px;
-    border-radius: 5px;
-    border: solid 1px var(--celeste);
 }
 
 body {
-    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
 }
 
-.container {
+img {
+    max-width: 100%;
+    display: block;
+}
+
+main {
+    background-color: var(--bg-color);
+    padding: 25px 15px !important;
     width: 100%;
     max-width: 1600px;
 }
 
-/*variables*/
-:root {
-    --celeste: rgb(225, 254, 255);
-    --gris-oscuro : rgb(202, 202, 202);
-    --negro: rgb(16, 16, 16);
+h1 {
+    color: #333;
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
 }
-
-/*otras clases*/

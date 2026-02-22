@@ -1,13 +1,10 @@
 /* Estilo general del contenedor */
-.container {
-    padding: 40px 15px;
+main {
     text-align: center;
 }
 
 h1 {
-    margin-bottom: 50px;
-    color: #333;
-    font-weight: 700;
+    margin-bottom: 30px;
 }
 
 /* Espaciado responsivo */

@@ -1,8 +1,6 @@
 /* =========================
    CONTACTO
 ========================= */
-* { box-sizing: border-box; }
-
 .contact-info,
 .map-section {
   max-width: 900px;
@@ -12,7 +10,6 @@
 
 /* Título principal */
 .contact-info h1 {
-  font-size: 34px;
   margin: 0 0 14px;
 }
 

@@ -1,14 +1,5 @@
-
-
-/* Espaciado general de la página */
-.container {
-  padding-top: 20px;
-  padding-bottom: 30px;
-}
-
 /* Títulos */
 .page-title {
-  font-size: 34px;
   margin: 0 0 12px;
 }
 
