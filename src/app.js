@@ -40,6 +40,20 @@ fetch(headerPath)
     })
     .catch(err => console.error("Error cargando header:", err));
 
+
+//---------------- FOOTER -----------------------//
+const footerPath = location.pathname.includes("/src/views/")
+    ? "footer.html"
+    : "src/views/footer.html";
+
+fetch(footerPath)
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("footer").innerHTML = html;
+    })
+    .catch(err => console.error("Error cargando footer:", err));
+
+
 //----------------LOGIN-----------------------//
 const formLogin = document.querySelector("#login");
 
