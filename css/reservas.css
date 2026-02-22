@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: 75vh;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #222;
@@ -18,7 +18,7 @@
 
 .reservasCnt {
     background: #fff;
-    padding: 2.5rem;
+    padding: 0.5rem 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     width: 90%;
