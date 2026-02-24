@@ -104,7 +104,7 @@ input, select {
     box-shadow: 0 4px 10px rgba(95, 189, 176, 0.3);
 }
 
-#pResultado {
+#txtMensajeLogin {
     text-align: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;

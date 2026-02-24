@@ -62,6 +62,7 @@ if (formLogin) {
         evento.preventDefault();
 
         const txtMensaje = document.querySelector("#txtMensajeLogin");
+        txtMensaje.style.color = "red";
         let mensaje = "";
 
         if (formLogin.usuario.value === "" || formLogin.password.value === "") {
@@ -95,8 +96,8 @@ if (bodyListadoRegistros) {
     const txtMensaje = document.querySelector("#txtMensajeListaReservas");
 
     const btnCerrarSesion = document.querySelector("#btnCerrarSesion").addEventListener("click", cerrarSesion);
-    
-    function cerrarSesion(){
+
+    function cerrarSesion() {
         sessionStorage.clear();
         window.location.href = "/";
     }
@@ -262,6 +263,8 @@ if (formReservas) {
                 reservas.push(nuevaReserva);
 
                 localStorage.setItem('reservas', JSON.stringify(reservas));
+                
+                formReservas.reset();
 
                 document.querySelector("#pResultado").style.color = "black";
                 document.querySelector("#pResultado").innerHTML = "Reserva realizada con éxito.";
