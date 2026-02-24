@@ -1,7 +1,7 @@
 /* =========================
    HEADER / NAV
 ========================= */
-#encabezado {
+#header {
   background: #fff;
   border-bottom: 1px solid #eaeaea;
   position: sticky;
@@ -19,6 +19,10 @@
 }
 
 /* Logo */
+#encabezado .logo {
+    min-width: 45px;
+}
+
 #encabezado .logo img {
   width: 55px;
   height: 55px;
@@ -30,7 +34,6 @@
   margin: 0;
   font-size: 26px;
   font-weight: 800;
-  line-height: 0.5;
 }
 
 /* Botón hamburguesa */
@@ -75,6 +78,50 @@
 .nav-abierto {
   display: block;
   border-top: 1px solid #eaeaea;
+}
+
+@media (min-width: 1024px) {
+
+  /* El header pasa a layout horizontal */
+  #encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+  }
+
+  /* Ajustamos la primera fila */
+  #encabezado > div {
+    padding: 18px 0;
+  }
+
+  /* Ocultamos hamburguesa */
+  .btn-menu {
+    display: none;
+  }
+
+  /* El nav SIEMPRE visible */
+  #nav {
+    display: block;
+    border-top: none;
+  }
+
+  /* Ignoramos estados mobile */
+  .nav-colapsado,
+  .nav-abierto {
+    display: block;
+  }
+
+  /* Menú horizontal */
+  #nav ul {
+    display: flex;
+    gap: 5px;
+  }
+
+  #nav a {
+    padding: 10px 10px;
+    transition: background .1s ease-in-out;
+  }
 }
 
 /* =========================
