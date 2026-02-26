@@ -220,9 +220,24 @@ if (formReservas) {
         let fecha = document.querySelector("#fecha").value;
         let opcionHora = document.querySelector("#slcHora").value;
 
-        if (textoNulo(nombreCliente) || textoNulo(celular) || textoNulo(correo) || textoNulo(nombreMascota) || textoNulo(fecha) || opcionServicio == 0 || opcionProfesional == 0 || opcionHora == 0) {
+        if (textoNulo(nombreCliente) || textoNulo(celular) || textoNulo(correo) || textoNulo(nombreMascota) || textoNulo(fecha) || opcionServicio == 0 || opcionHora == 0) {
             document.querySelector("#pResultado").style.color = "red";
-            document.querySelector("#pResultado").innerHTML = "Todos los campos son obligatorios";
+            document.querySelector("#pResultado").innerHTML = "Complete todos los campos obligatorios";
+            if (textoNulo(nombreCliente)) {
+                document.querySelector("#nombreCliente").focus();
+            } else if (textoNulo(celular)) {
+                document.querySelector("#celular").focus();
+            } else if (textoNulo(correo)) {
+                document.querySelector("#correo").focus();
+            } else if (textoNulo(nombreMascota)) {
+                document.querySelector("#nombreMascota").focus();
+            } else if (opcionServicio == 0) {
+                document.querySelector("#slcServicio").focus();
+            } else if (textoNulo(fecha)) {
+                document.querySelector("#fecha").focus();
+            } else if (opcionHora == 0) {
+                document.querySelector("#slcHora").focus();
+            }
         } else {
             let errores = "";
             if (!tieneSoloLetras(nombreCliente)) {
@@ -230,6 +245,7 @@ if (formReservas) {
             }
             if (!celularValido(celular)) {
                 errores += "- El celular del cliente no es válido.<br>Recuerde que solo puede contener 9 dígitos con el formato: 09*******<br><br>";
+                document.querySelector("#celular").value = "";
             }
             if (!tieneSoloLetras(nombreMascota)) {
                 errores += "- El nombre de la mascota solo puede contener letras.<br><br>";
@@ -251,7 +267,9 @@ if (formReservas) {
                     opcionServicio = "Estética";
                 }
 
-                if (opcionProfesional == "JuanaAlvarez") {
+                if (opcionProfesional == 0) {
+                    opcionProfesional = "Sin preferencia";
+                } else if (opcionProfesional == "JuanaAlvarez") {
                     opcionProfesional = "Juana Alvárez";
                 } else if (opcionProfesional == "PedroAcosta") {
                     opcionProfesional = "Pedro Acosta";
@@ -263,7 +281,7 @@ if (formReservas) {
                 reservas.push(nuevaReserva);
 
                 localStorage.setItem('reservas', JSON.stringify(reservas));
-                
+
                 formReservas.reset();
 
                 document.querySelector("#pResultado").style.color = "black";

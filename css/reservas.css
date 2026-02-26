@@ -86,6 +86,12 @@ input, select {
     text-align-last: center; /* Específico para que los select también se centren */
 }
 
+.obligatorio::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+
 #btnReservas {
     background: linear-gradient(135deg, var(--primary-color) 0%, #bd4242 100%);
     color: white;
